@@ -20,6 +20,8 @@ import com.android.volley.toolbox.Volley;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.singleton.JuegoSingleton;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -40,10 +42,12 @@ public class ListJuegoAdapter extends ArrayAdapter {
     public ListJuegoAdapter(Context context) {
         super(context, 0);
         requestQueue = Volley.newRequestQueue(context);
-        jsArrayRequest = new JsonArrayRequest(Request.Method.GET, URL_BASE, null, new Response.Listener<JSONArray>() {
+        jsArrayRequest = new JsonArrayRequest(Request.Method.GET, URL_BASE, null,
+                new Response.Listener<JSONArray>() {
             @Override
             public void onResponse(JSONArray response) {
                 items = parseJson(response);
+                notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -87,8 +91,13 @@ public int getCount(){
         tvProd=listJuegoView.findViewById(R.id.tvProducto);
         tvProdPrec=listJuegoView.findViewById(R.id.tvPrecioProducto);
         tvProdDesc=listJuegoView.findViewById(R.id.tvDtoProducto);
-        String url = items.get(position).getUrl();
-       /* Glide.with(getContext()).load(url).into(ivProd);*/
+        RequestOptions requestOptions=new RequestOptions();
+        requestOptions.placeholder(R.drawable.ic_juegos);
+        try {
+            Glide.with(getContext()).setDefaultRequestOptions(requestOptions).load(items.get(position).getUrl()).into(ivProd);
+        }catch(IllegalArgumentException ex) {
+            Log.d("jon", String.valueOf(ivProd.getTag()));
+        }
         tvProd.setText(items.get(position).getNombre());
         tvProdPrec.setText(items.get(position).getPrecio());
         tvProdDesc.setText(items.get(position).getDescuento());
