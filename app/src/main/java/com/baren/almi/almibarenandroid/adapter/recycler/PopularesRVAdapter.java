@@ -7,6 +7,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
+import com.baren.almi.almibarenandroid.R;
+
 public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.MyViewHolder>{
     private Context context;
     public class MyViewHolder extends RecyclerView.ViewHolder {
@@ -23,7 +25,7 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
     @NonNull
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        //CardView c = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview)
+        CardView c = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_example,viewGroup,false);
         return null;
     }
 
