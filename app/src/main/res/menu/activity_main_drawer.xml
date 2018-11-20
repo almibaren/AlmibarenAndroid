@@ -5,7 +5,7 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/Inicio"
+            android:id="@+id/inicio"
             android:icon="@drawable/ic_launcher_background"
             android:title="@string/inicio"/>
         <item
