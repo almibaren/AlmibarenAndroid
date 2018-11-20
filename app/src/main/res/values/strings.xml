@@ -1,11 +1,40 @@
 <resources>
-    <string name="app_name">almibarenAndroid</string>
+    <string name="app_name">Almibaren</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="nav_header_title">Android Studio</string>
     <string name="nav_header_subtitle">android.studio@android.com</string>
-    <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
+    <string name="action_lupa">Buscar</string>
+    <string name="inicio">Inicio</string>
+    <string name="juegos">Juegos</string>
+    <string name="consolas">Consolas</string>
+    <string name="smarttab">Smartphone/Tablets</string>
+    <string name="ubicacion">Ubicación</string>
+    <string name="acerda_de">Acerca de</string>
+    <string name="servicio_tecnico">Servicio Técnico</string>
+    <string name="ajustes">Ajustes</string>
+    <string name="inicSesion">Iniciar Sesión</string>
+    <string name="cerrarcSesion">Cerrar Sesión</string>
+    <string name="carrito">Carrito</string>
+    <string name="lupa">Lupa</string>
+    <string name="title_activity_ubicacion_tienda">Ubicacion</string>
+    <string name="passwdInicio">Contraseña</string>
+    <string name="userInicio">Usuario</string>
+    <string name="btnInicSes">Iniciar Sesion</string>
+    <string name="noregistrado"><a href="https://www.pccomponentes.com/">Aun no esta registrado? Registrese</a></string>
+    <string name="regDNI">DNI *</string>
+    <string name="regNombre">Nombre *</string>
+    <string name="regApellido1">Primer Apellido *</string>
+    <string name="regApellido2">Segundo Apellido</string>
+    <string name="regMail">e-Mail *</string>
+    <string name="regUser">Usuario *</string>
+    <string name="regPasswd">Contraseña *</string>
+    <string name="regPasswd1">Rep. Contraseña *</string>
+    <string name="regImg">Imagen</string>
+    <string name="btnReg">Registrar</string>
+    <string name="historiaTienda">¿Que es Almibaren? Preguntas mientras clavas tus pupilas en mis pupilas.
+    Almibaren es la mejor tienda a este lado del Nervion. Nos especializamos en videojuegos y consolas pero sin descuidar el apartado smartphone y tablets.
+        Contamos con un equipo de especialistas que ayudara a nuestros clientes a realizar las compras contando con los gustos de cada cliente.
+    Ven a visitarnos a C/Lehendakari Agirre 29 en Bilbao y adentrate en un mundo donde disfrutaras del videojuego.</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

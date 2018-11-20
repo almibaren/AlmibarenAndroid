@@ -14,7 +14,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.baren.almi.almibarenandroid.fragment.AcercaDeFragment;
 import com.baren.almi.almibarenandroid.fragment.MainFragment;
+import com.baren.almi.almibarenandroid.fragment.SoporteTecnicoFragment;
+import com.baren.almi.almibarenandroid.fragment.UbicacionFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -75,19 +78,32 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        if (id == R.id.inicio) {
+            MainFragment mainFragment =new MainFragment();
+            mainFragment.setActivity(this);
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain,mainFragment).commit();
+        } else if (id == R.id.servicioTecnico) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new SoporteTecnicoFragment()).commit();
+        } else  if (id == R.id.acercaDe){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AcercaDeFragment()).commit();
+        } else if (id == R.id.ubicacion){
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new UbicacionFragment()).commit();
+        }else if (id == R.id.ajustes){
+            /*ocultarTabs("Ajustes");*/
+        }else if (id == R.id.sesion){
+            String sesion= item.getTitle().toString();
+            if (sesion.equals("Iniciar Sesión")){
+              /*  fragmentTransaction.replace(R.id.main_content, new IniciarSesionActivity()).commit();
+                ocultarTabs("Inicio de Sesion");*/
+            }else if(sesion=="Cerrar Sesion"){
+              /*  Session session = new Session(getApplicationContext());
+                session.borrarSesion(getMenu(),getHeader(),getApplicationContext());
+                fragmentTransaction.replace(R.id.main_content, new InicioActivity()).commit();
+                mostrarTabs("Almibaren");*/
+            }
 
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
