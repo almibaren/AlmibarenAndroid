@@ -5,14 +5,22 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.baren.almi.almibarenandroid.R;
 
 public class InicioFragment extends Fragment {
+
+    private RecyclerView rvPopulares;
+    private Context context;
+
+    public void setContext(Context context) {
+        this.context = context;
+    }
 
     public InicioFragment() {
     }
@@ -34,14 +42,16 @@ public class InicioFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_inicio, container, false);
-
-
         return vista;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        rvPopulares = view.findViewById(R.id.rvPopulares);
+        rvPopulares.setLayoutManager(new LinearLayoutManager(context));
+         PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(context);
+        rvPopulares.setAdapter(popularesRVAdapter);
     }
 
     @Override
