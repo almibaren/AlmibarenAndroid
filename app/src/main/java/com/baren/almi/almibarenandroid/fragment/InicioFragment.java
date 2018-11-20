@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.baren.almi.almibarenandroid.R;
+import com.baren.almi.almibarenandroid.adapter.recycler.PopularesRVAdapter;
 
 public class InicioFragment extends Fragment {
 

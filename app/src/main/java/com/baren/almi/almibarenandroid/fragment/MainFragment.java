@@ -18,7 +18,6 @@ import com.baren.almi.almibarenandroid.adapter.ViewPagerProductosAdapter;
 
 public class MainFragment extends Fragment {
     private MainActivity activity;
-    private TabLayout tabsProductos;
 
     public MainFragment() {
     }
@@ -54,7 +53,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabsProductos);
+        TabLayout tabLayout =  view.findViewById(R.id.tabsProductos);
         tabLayout.addTab(tabLayout.newTab().setText("Inicio"));
         tabLayout.addTab(tabLayout.newTab().setText("Juegos"));
         tabLayout.addTab(tabLayout.newTab().setText("Consolas"));

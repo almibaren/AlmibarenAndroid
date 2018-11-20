@@ -6,19 +6,19 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/inicio"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/ic_inicio"
             android:title="@string/inicio"/>
         <item
             android:id="@+id/servicioTecnico"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/ic_servicio_tecnico"
             android:title="@string/servicio_tecnico"/>
         <item
             android:id="@+id/acercaDe"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/ic_acerca"
             android:title="@string/acerda_de"/>
         <item
             android:id="@+id/ubicacion"
-            android:icon="@drawable/ic_launcher_background"
+            android:icon="@drawable/ic_ubicacion"
             android:title="@string/ubicacion" />
 
     </group>
@@ -33,7 +33,7 @@
                 android:title="@string/ajustes" />
             <item
                 android:id="@+id/sesion"
-                android:icon="@drawable/ic_launcher_background"
+                android:icon="@drawable/ic_inic_sesion"
                 android:title="@string/inicSesion" />
         </menu>
     </item>
