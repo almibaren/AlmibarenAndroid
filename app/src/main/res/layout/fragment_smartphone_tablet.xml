@@ -5,10 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".fragment.SmartphoneTabletFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <ListView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Smartphone" />
+        android:id="@+id/lvSmartphoneTablets"></ListView>
 
 </FrameLayout>
