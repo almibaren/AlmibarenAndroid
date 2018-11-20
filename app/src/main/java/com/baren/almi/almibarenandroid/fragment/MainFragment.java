@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +36,7 @@ public class MainFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        Log.d("IGOR","ONCREATE");
 
     }
 
@@ -45,13 +46,21 @@ public class MainFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_main, container, false);
 
+        //Log.d("IGOR","ONCREATEVIEW");
+
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
         TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabsProductos);
         tabLayout.addTab(tabLayout.newTab().setText("Inicio"));
         tabLayout.addTab(tabLayout.newTab().setText("Juegos"));
         tabLayout.addTab(tabLayout.newTab().setText("Consolas"));
         tabLayout.addTab(tabLayout.newTab().setText("Moviles"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
-
+//Log.d("IGOR","ONVIEWCREATED");
         final ViewPager viewPager = (ViewPager) view.findViewById(R.id.viewPagerProductos);
         final ViewPagerProductosAdapter viewPagerProductosAdapter = new ViewPagerProductosAdapter
                 (activity.getSupportFragmentManager(), tabLayout.getTabCount());
@@ -73,17 +82,12 @@ public class MainFragment extends Fragment {
             }
         });
 
-        return view;
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
     }
 
     @Override
     public void onViewStateRestored(Bundle savedInstanceState) {
         super.onViewStateRestored(savedInstanceState);
+        // Log.d("IGOR","ONVIEWRESTORED");
     }
 
     @Override
