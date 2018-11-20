@@ -16,13 +16,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.baren.almi.almibarenandroid.fragment.AcercaDeFragment;
+import com.baren.almi.almibarenandroid.fragment.IniciarSesionFragment;
+import com.baren.almi.almibarenandroid.fragment.InicioFragment;
 import com.baren.almi.almibarenandroid.fragment.MainFragment;
 import com.baren.almi.almibarenandroid.fragment.SoporteTecnicoFragment;
 import com.baren.almi.almibarenandroid.fragment.UbicacionFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    NavigationView navigationView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +38,7 @@ public class MainActivity extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         MainFragment mainFragment =new MainFragment();
         mainFragment.setActivity(this);
@@ -94,13 +96,11 @@ public class MainActivity extends AppCompatActivity
         }else if (id == R.id.sesion){
             String sesion= item.getTitle().toString();
             if (sesion.equals("Iniciar Sesión")){
-              /*  fragmentTransaction.replace(R.id.main_content, new IniciarSesionActivity()).commit();
-                ocultarTabs("Inicio de Sesion");*/
+                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new IniciarSesionFragment()).commit();
             }else if(sesion=="Cerrar Sesion"){
-              /*  Session session = new Session(getApplicationContext());
+                Session session = new Session(getApplicationContext());
                 session.borrarSesion(getMenu(),getHeader(),getApplicationContext());
-                fragmentTransaction.replace(R.id.main_content, new InicioActivity()).commit();
-                mostrarTabs("Almibaren");*/
+                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new InicioFragment()).commit();
             }
 
         }
@@ -109,5 +109,13 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public Menu getMenu() {
+        return navigationView.getMenu();
+    }
+
+    public View getHeader() {
+        return navigationView.getHeaderView(0);
     }
 }
