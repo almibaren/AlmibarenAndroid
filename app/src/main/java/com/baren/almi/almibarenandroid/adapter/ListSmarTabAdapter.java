@@ -66,9 +66,6 @@ public class ListSmarTabAdapter extends ArrayAdapter {
                 Log.d("jon", objProducto.toString());
                 Productos productos = new Productos(objProducto.getString("id"),
                         objProducto.getString("url"),
-                        objProducto.getString("url2"),
-                        objProducto.getString("url3"),
-                        objProducto.getString("url4"),
                         objProducto.getString("nombre"),
                         objProducto.getString("precio"),
                         objProducto.getString("descuento"));

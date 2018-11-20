@@ -8,11 +8,14 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.baren.almi.almibarenandroid.R;
+import com.baren.almi.almibarenandroid.adapter.ListJuegoAdapter;
 
 public class JuegosFragment extends Fragment {
-
+    private ListView lvJuego;
+    private ListJuegoAdapter adapter;
     public JuegosFragment() {
     }
 
@@ -33,14 +36,15 @@ public class JuegosFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_juegos, container, false);
-
-
         return vista;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        lvJuego=view.findViewById(R.id.lvJuegos);
+        adapter = new ListJuegoAdapter(getContext());
+        lvJuego.setAdapter(adapter);
     }
 
     @Override

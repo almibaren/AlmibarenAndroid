@@ -8,18 +8,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
 
 import com.baren.almi.almibarenandroid.R;
+import com.baren.almi.almibarenandroid.adapter.ListSmarTabAdapter;
 
 public class SmartphoneTabletFragment extends Fragment {
-
+    private ListView lvSmarTab;
+    private ListSmarTabAdapter adapter;
     public SmartphoneTabletFragment() {
     }
 
 
     public static Fragment newInstance() {
         SmartphoneTabletFragment smartphoneTabletFragment = new SmartphoneTabletFragment();
-
         return smartphoneTabletFragment;
     }
 
@@ -33,14 +35,15 @@ public class SmartphoneTabletFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
 
         View vista = inflater.inflate(R.layout.fragment_smartphone_tablet, container, false);
-
-
         return vista;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        lvSmarTab=view.findViewById(R.id.lvSmartphoneTablets);
+        adapter = new ListSmarTabAdapter(getContext());
+        lvSmarTab.setAdapter(adapter);
     }
 
     @Override

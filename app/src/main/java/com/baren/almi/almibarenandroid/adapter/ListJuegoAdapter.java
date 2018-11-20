@@ -62,7 +62,6 @@ public class ListJuegoAdapter extends ArrayAdapter {
 
             JSONObject objectJuego= jsonArray.getJSONObject(i);
             Productos prod = new Productos(objectJuego.getString("id"),objectJuego.getString("url"),
-                    objectJuego.getString("url2"),objectJuego.getString("url3"),objectJuego.getString("url4"),
                     objectJuego.getString("nombre"),objectJuego.getString("precio"),objectJuego.getString("descuento"));
             productos.add(prod);
 
