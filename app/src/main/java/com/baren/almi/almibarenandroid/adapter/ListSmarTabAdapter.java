@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ListSmarTabAdapter extends ArrayAdapter {
     public ImageView ivProd=null;
-    public TextView tvProd, tvProdPrec, tvProdDesc;
+    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/smarttab";
@@ -91,6 +91,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         listSmartTabV = layoutInflater.inflate(R.layout.cardview_example, parent, false);
         ivProd=listSmartTabV.findViewById(R.id.ivProducto);
         tvProd=listSmartTabV.findViewById(R.id.tvProducto);
+        tvIdProd=listSmartTabV.findViewById(R.id.tvIdProducto);
         tvProdPrec=listSmartTabV.findViewById(R.id.tvPrecioProducto);
         tvProdPrec=listSmartTabV.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
@@ -100,6 +101,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         }catch(IllegalArgumentException ex) {
             Log.d("jon", String.valueOf(ivProd.getTag()));
         }
+        tvIdProd.setText(list.get(position).getId());
         tvProd.setText(list.get(position).getNombre());
         tvProdPrec.setText(list.get(position).getPrecio());
         Log.d("JON", (tvProdDesc==null)+"");

@@ -33,7 +33,7 @@ import java.util.List;
 public class ListJuegoAdapter extends ArrayAdapter {
 
     public ImageView ivProd=null;
-    public TextView tvProd,tvProdPrec,tvProdDesc;
+    public TextView tvProd,tvProdPrec, tvProdDesc, tvIdProd;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/games";
@@ -89,6 +89,7 @@ public int getCount(){
         listJuegoView = layoutInflater.inflate(R.layout.cardview_example,parent,false);
         ivProd=listJuegoView.findViewById(R.id.ivProducto);
         tvProd=listJuegoView.findViewById(R.id.tvProducto);
+        tvIdProd=listJuegoView.findViewById(R.id.tvIdProducto);
         tvProdPrec=listJuegoView.findViewById(R.id.tvPrecioProducto);
         tvProdDesc=listJuegoView.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
@@ -98,6 +99,7 @@ public int getCount(){
         }catch(IllegalArgumentException ex) {
             Log.d("jon", String.valueOf(ivProd.getTag()));
         }
+        tvIdProd.setText(items.get(position).getId());
         tvProd.setText(items.get(position).getNombre());
         tvProdPrec.setText(items.get(position).getPrecio());
         tvProdDesc.setText(items.get(position).getDescuento());

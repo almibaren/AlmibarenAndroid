@@ -26,7 +26,7 @@ import java.util.List;
 
 public class ProductosInicioAdapter {
     private Context context;
-    private String URL_BASE = "http://192.168.6.161/almibarenBackend/products/";
+    private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/";
 
 
 

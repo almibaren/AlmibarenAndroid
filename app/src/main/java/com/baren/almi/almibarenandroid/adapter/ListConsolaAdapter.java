@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ListConsolaAdapter extends ArrayAdapter {
     public ImageView ivProd=null;
-    public TextView tvProd, tvProdPrec, tvProdDesc;
+    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/consoles";
@@ -91,6 +91,7 @@ public class ListConsolaAdapter extends ArrayAdapter {
         listConsolaV = layoutInflater.inflate(R.layout.cardview_example, parent, false);
         ivProd=listConsolaV.findViewById(R.id.ivProducto);
         tvProd=listConsolaV.findViewById(R.id.tvProducto);
+        tvIdProd=listConsolaV.findViewById(R.id.tvIdProducto);
         tvProdPrec=listConsolaV.findViewById(R.id.tvPrecioProducto);
         tvProdDesc=listConsolaV.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
@@ -100,6 +101,7 @@ public class ListConsolaAdapter extends ArrayAdapter {
         }catch(IllegalArgumentException ex) {
             Log.d("jon", String.valueOf(ivProd.getTag()));
         }
+        tvIdProd.setText(list.get(position).getId());
         tvProd.setText(list.get(position).getNombre());
         tvProdPrec.setText(list.get(position).getPrecio());
         tvProdDesc.setText(list.get(position).getDescuento());
