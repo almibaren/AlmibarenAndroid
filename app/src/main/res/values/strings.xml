@@ -39,8 +39,11 @@
     <string name="title_activity_ubicacion_tienda_fragment">Ubicacion</string>
     <string name="btnActualizar">Actualizar</string>
     <string name="tvAjusteCompras">Compras</string>
+    <string name="tvAjusteAlqui">Alquileres</string>
+    <string name="tvAjusteRep">Reparaciones</string>
+    <string name="valorNomPro">Producto</string>
     <string name="tvAjustesTransaccionId">Id Transaccion</string>
     <string name="passwdAnt">Contraseña Antigua*</string>
     <string name="urlActu">Escriba aqui una Url para cambiar la imagen</string>
-
+    <string name="Nada">N/a</string>
 </resources>
