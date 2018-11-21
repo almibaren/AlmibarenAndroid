@@ -38,7 +38,6 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        Log.d("",""+this.list.size());
         CardView cardView = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_inicio, viewGroup, false);
         MyViewHolder myViewHolder = new MyViewHolder(cardView);
         return myViewHolder;
@@ -48,8 +47,8 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
         ((TextView) myViewHolder.mCardView.findViewById(R.id.tvProducto)).setText(list.get(i).getNombre());
         Glide.with(context).load(list.get(i).getUrl()).into((ImageView) myViewHolder.mCardView.findViewById(R.id.ivProducto));
-        ((TextView) myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText(list.get(i).getPrecio());
-        ((TextView) myViewHolder.mCardView.findViewById(R.id.tvDtoProducto)).setText(list.get(i).getDescuento());
+        /*((TextView) myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText(list.get(i).getPrecio());
+        ((TextView) myViewHolder.mCardView.findViewById(R.id.tvDtoProducto)).setText(list.get(i).getDescuento());*/
 
     }
 
