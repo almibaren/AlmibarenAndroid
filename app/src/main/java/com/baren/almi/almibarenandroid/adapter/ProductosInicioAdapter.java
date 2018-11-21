@@ -26,40 +26,17 @@ import java.util.List;
 
 public class ProductosInicioAdapter {
     private Context context;
-    private RequestQueue requestQueue;
-    private JsonRequest jsArrayRequest;
     private String URL_BASE = "http://192.168.6.161/almibarenBackend/products/";
 
 
-    public List<Productos> getListPopulares() {
+
+    public void cargarPopulares(final List<Productos> lis,final PopularesRVAdapter ada) {
         Log.d("JON","ESTOY COGIENDO LA LISTA");
-        return list.get(0);
-    }
-
-    public List<Productos> getListRecomendados() {
-        return list.get(1);
-    }
-
-    public List<Productos> getListValorados() {
-        return list.get(2);
-    }
-
-    public List<Productos> getListOfertas() {
-        return list.get(3);
-    }
-
-    public boolean isListNull() {
-        return (list==null);
-    }
-
-    private List<List<Productos>> list;
-
-    public ProductosInicioAdapter(Context context,final PopularesRVAdapter adapter) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_BASE, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
-                list = parseJson(response);
-                adapter.notifyDataSetChanged();
+                parseJson(response, "populares",lis,ada);
+
             }
         }, new Response.ErrorListener() {
             @Override
@@ -69,57 +46,42 @@ public class ProductosInicioAdapter {
         });
 
         CardViewSingleton.getInstance(context).addToRequestQueue(jsonObjectRequest);
+
     }
 
-    private List<List<Productos>> parseJson(JSONObject jsonObject) {
-        List<List<Productos>> list = new ArrayList<List<Productos>>();
-        List<Productos> listPopulares = new ArrayList<>();
-        List<Productos> listRecomendados = new ArrayList<>();
-        List<Productos> listValorados = new ArrayList<>();
-        List<Productos> listOfertas = new ArrayList<>();
-        try {
-            JSONArray jsonArrayPopulares = jsonObject.getJSONArray("populares");
-            JSONArray jsonArrayRecomendados = jsonObject.getJSONArray("recomendados");
-            JSONArray jsonArrayValorados = jsonObject.getJSONArray("valorados");
-            JSONArray jsonArrayOfertas = jsonObject.getJSONArray("ofertas");
+    public List<Productos> getListRecomendados() {
+        return null;
+    }
 
+    public List<Productos> getListValorados() {
+        return null;
+    }
+
+    public List<Productos> getListOfertas() {
+        return null;
+    }
+
+
+
+
+
+    public ProductosInicioAdapter(Context context) {
+            this.context=context;
+    }
+
+    private void parseJson(JSONObject jsonObject,String lista,List<Productos> lis,PopularesRVAdapter ada) {
+
+
+        try {
+            JSONArray jsonArrayPopulares = jsonObject.getJSONArray(lista);
 
             for (int i = 0; i < jsonArrayPopulares.length(); i++) {
 
                 JSONObject jsonObject1 = jsonArrayPopulares.getJSONObject(i);
                 Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
-                listPopulares.add(producto);
-
+                lis.add(producto);
+                ada.notifyDataSetChanged();
             }
-
-            for (int i = 0; i < jsonArrayRecomendados.length(); i++) {
-
-                JSONObject jsonObject1 = jsonArrayRecomendados.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
-                listRecomendados.add(producto);
-
-
-            }
-            for (int i = 0; i < jsonArrayValorados.length(); i++) {
-                JSONObject jsonObject1 = jsonArrayValorados.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
-                listValorados.add(producto);
-
-
-            }
-            for (int i = 0; i < jsonArrayOfertas.length(); i++) {
-
-                JSONObject jsonObject1 = jsonArrayOfertas.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
-                listOfertas.add(producto);
-
-
-            }
-            list.add(listPopulares);
-            list.add(listRecomendados);
-            list.add(listValorados);
-            list.add(listOfertas);
-
 
 
         } catch (JSONException e) {
@@ -127,8 +89,6 @@ public class ProductosInicioAdapter {
         }
 
 
-        return list;
-
-    }
+     }
 
 }

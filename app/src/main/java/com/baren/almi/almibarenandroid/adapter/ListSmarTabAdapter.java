@@ -35,7 +35,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
     public TextView tvProd, tvProdPrec, tvProdDesc;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
-    private String URL_BASE = "http://192.168.6.161/almibarenBackend/products/smarttab";
+    private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/smarttab";
     private List<Productos> list;
     public ListSmarTabAdapter(Context context){
         super(context, 0);

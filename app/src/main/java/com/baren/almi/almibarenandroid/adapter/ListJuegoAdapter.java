@@ -36,7 +36,7 @@ public class ListJuegoAdapter extends ArrayAdapter {
     public TextView tvProd,tvProdPrec,tvProdDesc;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
-    private String URL_BASE = "http://192.168.6.161/almibarenBackend/products/games";
+    private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/games";
     private List<Productos> items;
 
     public ListJuegoAdapter(Context context) {

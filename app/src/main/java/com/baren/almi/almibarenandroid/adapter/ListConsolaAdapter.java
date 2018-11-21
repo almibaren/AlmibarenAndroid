@@ -35,7 +35,7 @@ public class ListConsolaAdapter extends ArrayAdapter {
     public TextView tvProd, tvProdPrec, tvProdDesc;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
-    private String URL_BASE = "http://192.168.6.161/almibarenBackend/products/consoles";
+    private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/consoles";
     private List<Productos> list;
 
     public ListConsolaAdapter(Context context) {

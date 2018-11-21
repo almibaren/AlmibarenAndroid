@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -29,21 +30,22 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
         }
     }
 
-    public PopularesRVAdapter(Context context,List<Productos> list) {
+    public PopularesRVAdapter(Context context,List<Productos> pro) {
         this.context = context;
-        this.list=list;
+        this.list=pro;
     }
 
-    @NonNull
+
     @Override
-    public MyViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        CardView cardView = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_example, viewGroup, false);
+    public MyViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+        Log.d("",""+this.list.size());
+        CardView cardView = (CardView) LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.cardview_inicio, viewGroup, false);
         MyViewHolder myViewHolder = new MyViewHolder(cardView);
         return myViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder myViewHolder, int i) {
+    public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
         ((TextView) myViewHolder.mCardView.findViewById(R.id.tvProducto)).setText(list.get(i).getNombre());
         Glide.with(context).load(list.get(i).getUrl()).into((ImageView) myViewHolder.mCardView.findViewById(R.id.ivProducto));
         ((TextView) myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText(list.get(i).getPrecio());
@@ -54,11 +56,9 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
     @Override
     public int getItemCount() {
 
-        if (list==null){
-            return 0;
-        }else {
-            return list.size() <= 10 ? list.size() : 10;
-        }
+
+            return  list.size() ;
+
     }
 
 

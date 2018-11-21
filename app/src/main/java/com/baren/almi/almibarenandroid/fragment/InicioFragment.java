@@ -13,9 +13,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.adapter.ProductosInicioAdapter;
 import com.baren.almi.almibarenandroid.adapter.recycler.PopularesRVAdapter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class InicioFragment extends Fragment {
 
@@ -50,22 +54,18 @@ public class InicioFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         rvPopulares = view.findViewById(R.id.rvPopulares);
-        rvPopulares.setLayoutManager(new LinearLayoutManager(context));
-       /* if (productosInicioAdapter.isListNull()){
-            Log.d("JON","LIST IS NULL");
-            try {
-                Thread.sleep(5000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-            Log.d("JON","HE DORMIDO");
-        }*/
+        LinearLayoutManager layoutManager
+                = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
+        rvPopulares.setLayoutManager(layoutManager);
 
-        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(context);
-
+        ProductosInicioAdapter prod=new ProductosInicioAdapter(this.context);
+        List<Productos> items=new ArrayList<Productos>();
+        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(this.context,items);
+        prod.cargarPopulares(items,popularesRVAdapter);
         rvPopulares.setAdapter(popularesRVAdapter);
 
-        productosInicioAdapter = new ProductosInicioAdapter(context,popularesRVAdapter);
+
+
     }
 
     @Override
