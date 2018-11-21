@@ -23,10 +23,6 @@ public class InicioFragment extends Fragment {
     private Context context;
     private ProductosInicioAdapter productosInicioAdapter;
 
-    public void setContext(Context context) {
-        this.context = context;
-
-    }
 
     public InicioFragment() {
     }
@@ -55,7 +51,7 @@ public class InicioFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvPopulares = view.findViewById(R.id.rvPopulares);
         rvPopulares.setLayoutManager(new LinearLayoutManager(context));
-        if (productosInicioAdapter.isListNull()){
+       /* if (productosInicioAdapter.isListNull()){
             Log.d("JON","LIST IS NULL");
             try {
                 Thread.sleep(5000);
@@ -63,10 +59,13 @@ public class InicioFragment extends Fragment {
                 e.printStackTrace();
             }
             Log.d("JON","HE DORMIDO");
-        }
+        }*/
 
-        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(context, productosInicioAdapter.getListPopulares());
+        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(context);
+
         rvPopulares.setAdapter(popularesRVAdapter);
+
+        productosInicioAdapter = new ProductosInicioAdapter(context,popularesRVAdapter);
     }
 
     @Override
@@ -77,7 +76,8 @@ public class InicioFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        productosInicioAdapter = new ProductosInicioAdapter(context);
+        this.context = context;
+
     }
 
     @Override

@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
+import com.baren.almi.almibarenandroid.adapter.ProductosInicioAdapter;
 import com.bumptech.glide.Glide;
 
 import java.util.List;
@@ -28,9 +29,9 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
         }
     }
 
-    public PopularesRVAdapter(Context context, List<Productos> list) {
+    public PopularesRVAdapter(Context context,List<Productos> list) {
         this.context = context;
-        this.list = list;
+        this.list=list;
     }
 
     @NonNull
@@ -52,7 +53,12 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
 
     @Override
     public int getItemCount() {
-        return 10;
+
+        if (list==null){
+            return 0;
+        }else {
+            return list.size() <= 10 ? list.size() : 10;
+        }
     }
 
 

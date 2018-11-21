@@ -14,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.baren.almi.almibarenandroid.Productos;
+import com.baren.almi.almibarenandroid.adapter.recycler.PopularesRVAdapter;
 import com.baren.almi.almibarenandroid.singleton.CardViewSingleton;
 
 import org.json.JSONArray;
@@ -23,7 +24,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ProductosInicioAdapter extends BaseAdapter {
+public class ProductosInicioAdapter {
     private Context context;
     private RequestQueue requestQueue;
     private JsonRequest jsArrayRequest;
@@ -53,12 +54,12 @@ public class ProductosInicioAdapter extends BaseAdapter {
 
     private List<List<Productos>> list;
 
-    public ProductosInicioAdapter(Context context) {
+    public ProductosInicioAdapter(Context context,final PopularesRVAdapter adapter) {
         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, URL_BASE, null, new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 list = parseJson(response);
-                notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
             }
         }, new Response.ErrorListener() {
             @Override
@@ -88,6 +89,7 @@ public class ProductosInicioAdapter extends BaseAdapter {
                 JSONObject jsonObject1 = jsonArrayPopulares.getJSONObject(i);
                 Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
                 listPopulares.add(producto);
+
             }
 
             for (int i = 0; i < jsonArrayRecomendados.length(); i++) {
@@ -96,11 +98,13 @@ public class ProductosInicioAdapter extends BaseAdapter {
                 Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
                 listRecomendados.add(producto);
 
+
             }
             for (int i = 0; i < jsonArrayValorados.length(); i++) {
                 JSONObject jsonObject1 = jsonArrayValorados.getJSONObject(i);
                 Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
                 listValorados.add(producto);
+
 
             }
             for (int i = 0; i < jsonArrayOfertas.length(); i++) {
@@ -109,40 +113,22 @@ public class ProductosInicioAdapter extends BaseAdapter {
                 Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
                 listOfertas.add(producto);
 
+
             }
             list.add(listPopulares);
             list.add(listRecomendados);
             list.add(listValorados);
             list.add(listOfertas);
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
 
         return list;
 
     }
 
-    @Override
-    public int getCount() {
-
-        return list.size();
-    }
-
-    @Override
-    public Object getItem(int position) {
-        return null;
-    }
-
-    @Override
-    public long getItemId(int position) {
-        return 0;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View cardItemview = convertView;
-
-        return null;
-    }
 }
