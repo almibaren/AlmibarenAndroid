@@ -34,7 +34,7 @@ import org.json.JSONObject;
 public class IniciarSesionFragment extends Fragment {
     public IniciarSesionFragment() {
     }
-    private String URL_BASE="http://192.168.6.161/almibarenBackend/users/login/";
+    private String URL_BASE="https://almibar.webcindario.com/almibarenBackend/users/login/";
     private EditText etUser,etPasswd;
     private Button btnInicSesion;
     private Session session;

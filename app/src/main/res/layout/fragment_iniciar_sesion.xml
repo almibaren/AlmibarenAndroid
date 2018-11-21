@@ -24,6 +24,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etUser"
+            android:inputType="text"
+            android:imeOptions="actionSend"
             android:layout_weight="5"/>
     </LinearLayout>
 
@@ -44,6 +46,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/etPasswd"
+            android:inputType="textWebPassword"
+            android:imeOptions="actionSend"
             android:layout_weight="7"/>
     </LinearLayout>
 

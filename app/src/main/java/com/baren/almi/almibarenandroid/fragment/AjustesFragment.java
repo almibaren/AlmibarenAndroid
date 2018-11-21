@@ -57,7 +57,7 @@ public class AjustesFragment extends Fragment {
         btnActualizar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getContext(), "asdasdasdasd", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), "estoy acticvo", Toast.LENGTH_SHORT).show();
             }
         });
 

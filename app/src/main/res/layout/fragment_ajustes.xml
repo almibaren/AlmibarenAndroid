@@ -28,6 +28,7 @@
             android:id="@+id/etImagenUsu"
             android:text="@string/urlActu"
             android:inputType="text"
+            android:imeOptions="actionSend"
             android:layout_weight="2.4"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
@@ -49,7 +50,8 @@
             android:id="@+id/etNomUsu"
             android:layout_weight="2"
             android:gravity="center"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:imeOptions="actionSend"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -87,7 +89,8 @@
             android:id="@+id/etAp2Usu"
             android:layout_weight="2"
             android:gravity="center"
-            android:inputType="text"/>
+            android:inputType="text"
+            android:imeOptions="actionSend"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -125,7 +128,8 @@
             android:id="@+id/etPasswdAntig"
             android:layout_weight="2"
             android:gravity="center"
-            android:inputType="textWebPassword"/>
+            android:inputType="textWebPassword"
+            android:imeOptions="actionSend"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -159,11 +163,12 @@
             android:gravity="center"/>
         <EditText
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:id="@+id/etPasswdNuevaComp"
             android:layout_weight="2"
             android:gravity="center"
-            android:inputType="textWebPassword"/>
+            android:inputType="textWebPassword"
+            android:imeOptions="actionSend"/>
     </LinearLayout>
     <Button
         android:layout_width="match_parent"
