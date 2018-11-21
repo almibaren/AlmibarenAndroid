@@ -10,7 +10,9 @@ import com.baren.almi.almibarenandroid.fragment.JuegosFragment;
 import com.baren.almi.almibarenandroid.fragment.SmartphoneTabletFragment;
 
 public class ViewPagerProductosAdapter extends FragmentStatePagerAdapter {
-    int mNumOfTabs;
+    private int mNumOfTabs;
+
+
 
     public ViewPagerProductosAdapter(FragmentManager fm, int NumOfTabs) {
         super(fm);
@@ -29,6 +31,7 @@ public class ViewPagerProductosAdapter extends FragmentStatePagerAdapter {
                 return juegosFragment;
             case 2:
                 ConsolasFragment consolasFragment = new ConsolasFragment();
+                consolasFragment.setFragmentManager();
                 return consolasFragment;
             case 3:
                 SmartphoneTabletFragment smartphoneTabletFragment = new SmartphoneTabletFragment();
@@ -43,4 +46,6 @@ public class ViewPagerProductosAdapter extends FragmentStatePagerAdapter {
     public int getCount() {
         return mNumOfTabs;
     }
+
+
 }

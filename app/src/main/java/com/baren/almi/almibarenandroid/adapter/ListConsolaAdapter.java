@@ -1,8 +1,10 @@
 package com.baren.almi.almibarenandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +21,8 @@ import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
+import com.baren.almi.almibarenandroid.PaginaProducto;
+import com.baren.almi.almibarenandroid.RegistrarActivity;
 import com.baren.almi.almibarenandroid.singleton.ConsolaSingleton;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -37,6 +41,11 @@ public class ListConsolaAdapter extends ArrayAdapter {
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/consoles";
     private List<Productos> list;
+
+    public void setFragmentManager() {
+    }
+
+
 
     public ListConsolaAdapter(Context context) {
         super(context, 0);
@@ -105,6 +114,16 @@ public class ListConsolaAdapter extends ArrayAdapter {
         tvProd.setText(list.get(position).getNombre());
         tvProdPrec.setText(list.get(position).getPrecio());
         tvProdDesc.setText(list.get(position).getDescuento());
+        listConsolaV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PaginaProducto paginaProducto = new PaginaProducto();
+                Intent intent = new Intent(getContext(),PaginaProducto.class);
+                intent.putExtra("productId",tvIdProd.getText().toString());
+                getContext().startActivity(intent);
+
+            }
+        });
         return listConsolaV;
     }
 }

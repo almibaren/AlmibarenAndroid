@@ -27,7 +27,7 @@ import org.json.JSONObject;
 
 public class RegistrarActivity extends AppCompatActivity {
 
-    private String URL_BASE ="https://almibar.webcindario/almibarenBackend/users/signup/";
+    private String URL_BASE ="https://almibar.webcindario.com/almibarenBackend/users/signup/";
     private EditText etDNI,etNombre,etAp1,etAp2,etEmail,etUser,etPasswd,etPasswdRepe,etImagen;
     private Button btnRegistrar;
 

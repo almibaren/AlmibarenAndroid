@@ -5,12 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragment.PaginaProductoFragment">
+    tools:context=".PaginaProducto">
 
     <android.support.v4.view.ViewPager
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:id="@+id/vpImagenesProd">
 
     </android.support.v4.view.ViewPager>
 
@@ -25,6 +26,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="NOMBRE DEL PRODUCTO"
+            android:id="@+id/tvNombreProd"
             android:gravity="center"/>
 
         <LinearLayout
@@ -39,7 +41,8 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="PRE"
-                android:textSize="20sp"/>
+                android:textSize="20sp"
+                android:id="@+id/tvPrecioProd"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -53,6 +56,7 @@
                     android:layout_weight="1"
                     android:text="DESC"
                     android:gravity="center"
+                    android:id="@+id/tvDtoProd"
                     />
 
                 <TextView
@@ -60,6 +64,7 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:text="PRV"
+                    android:id="@+id/tvPrecioVProd"
                     android:gravity="center"
                     />
             </LinearLayout>
@@ -81,7 +86,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:text="DESCRIPCION"
-                android:layout_weight="1"/>
+                android:layout_weight="1"
+                android:id="@+id/tvDescProd"/>
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -107,7 +113,8 @@
 
             <ListView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:id="@+id/lvOpinionesProd">
 
             </ListView>
 

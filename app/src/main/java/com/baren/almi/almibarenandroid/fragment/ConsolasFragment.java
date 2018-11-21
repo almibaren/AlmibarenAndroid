@@ -5,24 +5,31 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
 
+import com.baren.almi.almibarenandroid.MainActivity;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.adapter.ListConsolaAdapter;
 
 public class ConsolasFragment extends Fragment {
     private ListView lvConsola;
     private ListConsolaAdapter adapter;
+
+    public void setFragmentManager() {
+
+    }
+
+
     public ConsolasFragment() {
     }
 
 
     public static Fragment newInstance() {
         ConsolasFragment consolasFragment = new ConsolasFragment();
-
         return consolasFragment;
     }
 
@@ -44,6 +51,7 @@ public class ConsolasFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         lvConsola=view.findViewById(R.id.lvConsolas);
         adapter = new ListConsolaAdapter(getContext());
+        adapter.setFragmentManager();
         lvConsola.setAdapter(adapter);
     }
 
