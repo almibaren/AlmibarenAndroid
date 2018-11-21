@@ -35,8 +35,12 @@
     Almibaren es la mejor tienda a este lado del Nervion. Nos especializamos en videojuegos y consolas pero sin descuidar el apartado smartphone y tablets.
         Contamos con un equipo de especialistas que ayudara a nuestros clientes a realizar las compras contando con los gustos de cada cliente.
     Ven a visitarnos a C/Lehendakari Agirre 29 en Bilbao y adentrate en un mundo donde disfrutaras del videojuego.</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="title_activity_ubicacion_tienda_fragment">Map</string>
+    <string name="title_activity_ubicacion_tienda_fragment">Ubicacion</string>
+    <string name="btnActualizar">Actualizar</string>
+    <string name="tvAjusteCompras">Compras</string>
+    <string name="tvAjustesTransaccionId">Id Transaccion</string>
+    <string name="passwdAnt">Contraseña Antigua*</string>
+    <string name="urlActu">Escriba aqui una Url para cambiar la imagen</string>
+
 </resources>

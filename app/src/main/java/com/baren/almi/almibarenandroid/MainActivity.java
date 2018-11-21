@@ -18,6 +18,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 import com.baren.almi.almibarenandroid.fragment.AcercaDeFragment;
+import com.baren.almi.almibarenandroid.fragment.AjustesFragment;
 import com.baren.almi.almibarenandroid.fragment.IniciarSesionFragment;
 import com.baren.almi.almibarenandroid.fragment.InicioFragment;
 import com.baren.almi.almibarenandroid.fragment.MainFragment;
@@ -94,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.ubicacion){
             getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new UbicacionTiendaFragment()).commit();
         }else if (id == R.id.ajustes){
-            /*ocultarTabs("Ajustes");*/
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AjustesFragment()).commit();
         }else if (id == R.id.sesion){
             String sesion= item.getTitle().toString();
             if (sesion.equals("Iniciar Sesión")){
@@ -102,7 +103,9 @@ public class MainActivity extends AppCompatActivity
             }else if(sesion=="Cerrar Sesion"){
                 Session session = new Session(getApplicationContext());
                 session.borrarSesion(getMenu(),getHeader(),getApplicationContext());
-                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new InicioFragment()).commit();
+                MainFragment mainFragment =new MainFragment();
+                mainFragment.setActivity(this);
+                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, mainFragment).commit();
             }
 
         }

@@ -113,9 +113,10 @@ public class IniciarSesionFragment extends Fragment {
                 }catch (JSONException e ){
                 e.printStackTrace();
             }
-
+                MainFragment mainFragment =new MainFragment();
+                mainFragment.setActivity((MainActivity) getActivity());
                 Toast.makeText(getContext(), "Inicio de Sesion con exito", Toast.LENGTH_SHORT).show();
-                getFragmentManager().beginTransaction().replace(R.id.contentMain, new InicioFragment()).commit();
+                getFragmentManager().beginTransaction().replace(R.id.contentMain,mainFragment).commit();
             }
         }, new Response.ErrorListener() {
             @Override
