@@ -22,7 +22,7 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
     private List<Productos> list;
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
-        public CardView mCardView;
+            public CardView mCardView;
 
         public MyViewHolder(CardView c) {
             super(c);
@@ -30,9 +30,9 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
         }
     }
 
-    public PopularesRVAdapter(Context context,List<Productos> pro) {
+    public PopularesRVAdapter(Context context,List<Productos> pop) {
         this.context = context;
-        this.list=pro;
+        this.list=pop;
     }
 
 
@@ -54,9 +54,7 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
 
     @Override
     public int getItemCount() {
-
-
-            return  list.size() ;
+            return list.size() ;
 
     }
 

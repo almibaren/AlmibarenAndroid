@@ -16,14 +16,17 @@ import android.view.ViewGroup;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.adapter.ProductosInicioAdapter;
+import com.baren.almi.almibarenandroid.adapter.recycler.OfertasRVAdapter;
 import com.baren.almi.almibarenandroid.adapter.recycler.PopularesRVAdapter;
+import com.baren.almi.almibarenandroid.adapter.recycler.RecomendadosRVAdapter;
+import com.baren.almi.almibarenandroid.adapter.recycler.ValoradosRVAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class InicioFragment extends Fragment {
 
-    private RecyclerView rvPopulares;
+    private RecyclerView rvPopulares, rvRecomendadosParaTi, rvMejorValorados, rvOfertas;
     private Context context;
     private ProductosInicioAdapter productosInicioAdapter;
 
@@ -53,16 +56,42 @@ public class InicioFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        //POPULARES COMO EL PARTIDO
         rvPopulares = view.findViewById(R.id.rvPopulares);
-        LinearLayoutManager layoutManager
-                = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
-        rvPopulares.setLayoutManager(layoutManager);
+        rvRecomendadosParaTi = view.findViewById(R.id.rvRecomendadosParaTi);
+        rvMejorValorados = view.findViewById(R.id.rvMejorValorados);
+        rvOfertas = view.findViewById(R.id.rvOfertas);
+        LinearLayoutManager pops = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager recs = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager vals = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
+        LinearLayoutManager ofes = new LinearLayoutManager(this.context, LinearLayoutManager.HORIZONTAL, false);
+
+        rvPopulares.setLayoutManager(pops);
+        rvRecomendadosParaTi.setLayoutManager(recs);
+        rvMejorValorados.setLayoutManager(vals);
+        rvOfertas.setLayoutManager(ofes);
 
         ProductosInicioAdapter prod=new ProductosInicioAdapter(this.context);
-        List<Productos> items=new ArrayList<Productos>();
-        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(this.context,items);
-        prod.cargarPopulares(items,popularesRVAdapter);
+        List<Productos> productos=new ArrayList<Productos>();
+        List<Productos> recomendados=new ArrayList<Productos>();
+        List<Productos> valorados=new ArrayList<Productos>();
+        List<Productos> ofertas=new ArrayList<Productos>();
+        PopularesRVAdapter popularesRVAdapter = new PopularesRVAdapter(this.context,productos);
+        RecomendadosRVAdapter recomendadosRVAdapter = new RecomendadosRVAdapter(this.context,recomendados);
+        ValoradosRVAdapter valoradosRVAdapter = new ValoradosRVAdapter(this.context,valorados);
+        OfertasRVAdapter ofertasRVAdapter = new OfertasRVAdapter(this.context,ofertas);
+
+        prod.cargarPopulares(productos,popularesRVAdapter);
         rvPopulares.setAdapter(popularesRVAdapter);
+
+        prod.cargarRecomendados(recomendados,recomendadosRVAdapter);
+        rvRecomendadosParaTi.setAdapter(recomendadosRVAdapter);
+
+        prod.cargarValorados(valorados,valoradosRVAdapter);
+        rvMejorValorados.setAdapter(valoradosRVAdapter);
+
+        prod.cargarOfertas(ofertas,ofertasRVAdapter);
+        rvOfertas.setAdapter(ofertasRVAdapter);
 
 
 
