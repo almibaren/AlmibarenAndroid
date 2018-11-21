@@ -2,6 +2,7 @@ package com.baren.almi.almibarenandroid;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Icon;
 import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.annotation.RequiresApi;
@@ -29,7 +30,11 @@ public class Session {
             inicSesion.setIcon(R.drawable.ic_logout);
             inicSesion.setTitle("Cerrar Sesion");
             ImageView imageView = header.findViewById(R.id.imagenUsu);
-            Glide.with(context).load(getImagen()).into(imageView);
+            if(getImagen()!=null){
+                Glide.with(context).load(getImagen()).into(imageView);
+            }else{
+                imageView.setImageIcon(Icon.createWithResource(context,R.drawable.ic_inic_sesion));
+            }
             TextView nomUser = header.findViewById(R.id.nombreUsuario);
             nomUser.setText(getUser());
             TextView mailUser = header.findViewById(R.id.correoUsuario);

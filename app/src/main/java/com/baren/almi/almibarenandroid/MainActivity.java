@@ -1,8 +1,11 @@
 package com.baren.almi.almibarenandroid;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.graphics.Rect;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
@@ -16,6 +19,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.baren.almi.almibarenandroid.fragment.AcercaDeFragment;
 import com.baren.almi.almibarenandroid.fragment.AjustesFragment;
@@ -40,7 +44,6 @@ public class MainActivity extends AppCompatActivity
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         MainFragment mainFragment =new MainFragment();
@@ -58,9 +61,12 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.M)
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-
+        Session session = new Session(getApplicationContext());
+        session.AbrirSession(getMenu(),getHeader(),getApplicationContext());
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -83,6 +89,7 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Session session = new Session(getApplicationContext());
         Log.d("igor", id + "==" + R.id.inicio);
         if (id == R.id.inicio) {
             MainFragment mainFragment =new MainFragment();
@@ -95,13 +102,18 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.ubicacion){
             getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new UbicacionTiendaFragment()).commit();
         }else if (id == R.id.ajustes){
-            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AjustesFragment()).commit();
+            if(session.getUser()!=""){
+                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AjustesFragment()).commit();
+            }else{
+                Toast.makeText(this, "Has de logear primero", Toast.LENGTH_SHORT).show();
+                getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new IniciarSesionFragment()).commit();
+            }
+
         }else if (id == R.id.sesion){
             String sesion= item.getTitle().toString();
             if (sesion.equals("Iniciar Sesión")){
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new IniciarSesionFragment()).commit();
             }else if(sesion=="Cerrar Sesion"){
-                Session session = new Session(getApplicationContext());
                 session.borrarSesion(getMenu(),getHeader(),getApplicationContext());
                 MainFragment mainFragment =new MainFragment();
                 mainFragment.setActivity(this);

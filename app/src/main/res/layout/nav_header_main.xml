@@ -15,7 +15,7 @@
 
     <ImageView
         android:id="@+id/imagenUsu"
-        android:src="@drawable/ic_launcher_background"
+        android:src="@drawable/ic_inic_sesion"
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:paddingTop="@dimen/nav_header_vertical_spacing"/>
