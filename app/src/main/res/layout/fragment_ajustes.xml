@@ -259,11 +259,11 @@
             android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center"/>
     </LinearLayout>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        android:id="@+id/lvCompraTransaccAjuste"></ListView>
+        android:id="@+id/lvCompraTransaccAjuste"></android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -276,11 +276,11 @@
             android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center"/>
     </LinearLayout>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        android:id="@+id/lvAlquiTransaccAjuste"></ListView>
+        android:id="@+id/lvAlquiTransaccAjuste"></android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -293,11 +293,11 @@
             android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center"/>
     </LinearLayout>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        android:id="@+id/lvRepTransaccAjuste"></ListView>
+        android:id="@+id/lvRepTransaccAjuste"></android.support.v7.widget.RecyclerView>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -314,10 +314,10 @@
             android:gravity="center"
             android:textColor="@color/colorPrimary"/>
     </LinearLayout>
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:background="@color/colorAccent"
-        android:id="@+id/lvValoTransaccAjuste"></ListView>
+        android:id="@+id/lvValoTransaccAjuste"></android.support.v7.widget.RecyclerView>
 </LinearLayout>
 </ScrollView>
