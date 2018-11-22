@@ -1,18 +1,30 @@
 package com.baren.almi.almibarenandroid;
 
 public class Productos {
-    private String url = "";
+
     private String id = "";
     private String nombre = "";
     private String precio = "";
     private String descuento = "";
+    private String url = "";
+    private String calculado = "";
 
-    public Productos( String id, String url, String nombre, String precio, String descuento) {
-        this.url = url;
+    public Productos( String id, String nombre, String precio, String url, String descuento) {
         this.id = id;
         this.nombre = nombre;
         this.precio = precio;
+        this.url = url;
         this.descuento = descuento;
+        this.calculado = (Float.parseFloat(precio)-Float.parseFloat(precio)*Float.parseFloat(descuento)/100) + "";
+
+    }
+
+    public String getCalculado() {
+        return calculado;
+    }
+
+    public void setCalculado(String calculado) {
+        this.calculado = calculado;
     }
 
     public String getUrl() {

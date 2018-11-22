@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -65,10 +66,9 @@ public class ListJuegoAdapter extends ArrayAdapter {
         try {
 
             JSONObject objectJuego= jsonArray.getJSONObject(i);
-            Productos prod = new Productos(objectJuego.getString("id"),objectJuego.getString("url"),
-                    objectJuego.getString("nombre"),objectJuego.getString("precio"),objectJuego.getString("descuento"));
+            Productos prod = new Productos(objectJuego.getString("id"), objectJuego.getString("nombre"), objectJuego.getString("precio"),objectJuego.getString("url"), objectJuego.getString("descuento"));
             productos.add(prod);
-
+            Toast.makeText(getContext(), prod.getCalculado(), Toast.LENGTH_SHORT).show();
         }catch (JSONException e){
             e.printStackTrace();
         }
@@ -101,7 +101,7 @@ public int getCount(){
         }
         tvIdProd.setText(items.get(position).getId());
         tvProd.setText(items.get(position).getNombre());
-        tvProdPrec.setText(items.get(position).getPrecio());
+        //tvProdPrec.setText(items.get(position).getPrecio());
         tvProdDesc.setText(items.get(position).getDescuento());
         return listJuegoView;
     }

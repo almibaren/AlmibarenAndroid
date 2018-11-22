@@ -104,7 +104,7 @@ public class ProductosInicioAdapter {
             for (int i = 0; i < jsonArrayPopulares.length(); i++) {
 
                 JSONObject jsonObject1 = jsonArrayPopulares.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
+                Productos producto = new Productos(jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"),jsonObject1.getString("url"), jsonObject1.getString("descuento"));
                 pop.add(producto);
                 ada.notifyDataSetChanged();
             }
@@ -119,7 +119,7 @@ public class ProductosInicioAdapter {
             for (int i = 0; i < jsonArrayRecomendados.length(); i++) {
 
                 JSONObject jsonObject1 = jsonArrayRecomendados.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
+                Productos producto = new Productos(jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"),jsonObject1.getString("url"), jsonObject1.getString("descuento"));
                 recom.add(producto);
                 rec.notifyDataSetChanged();
             }
@@ -134,7 +134,7 @@ public class ProductosInicioAdapter {
             for (int i = 0; i < jsonArrayValor.length(); i++) {
 
                 JSONObject jsonObject1 = jsonArrayValor.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
+                Productos producto = new Productos(jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"),jsonObject1.getString("url"), jsonObject1.getString("descuento"));
                 valor.add(producto);
                 val.notifyDataSetChanged();
             }
@@ -149,7 +149,7 @@ public class ProductosInicioAdapter {
             for (int i = 0; i < jsonArrayOfertas.length(); i++) {
 
                 JSONObject jsonObject1 = jsonArrayOfertas.getJSONObject(i);
-                Productos producto = new Productos(jsonObject1.getString("url"), jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"), jsonObject1.getString("descuento"));
+                Productos producto = new Productos(jsonObject1.getString("id"), jsonObject1.getString("nombre"), jsonObject1.getString("precio"),jsonObject1.getString("url"), jsonObject1.getString("descuento"));
                 ofertas.add(producto);
                 ofe.notifyDataSetChanged();
             }

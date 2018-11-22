@@ -64,12 +64,9 @@ public class ListSmarTabAdapter extends ArrayAdapter {
 
                 JSONObject objProducto = jsonArray.getJSONObject(i);
                 Log.d("jon", objProducto.toString());
-                Productos productos = new Productos(objProducto.getString("id"),
-                        objProducto.getString("url"),
-                        objProducto.getString("nombre"),
-                        objProducto.getString("precio"),
-                        objProducto.getString("descuento"));
-                list.add(productos);
+                Productos prod = new Productos(objProducto.getString("id"), objProducto.getString("nombre"), objProducto.getString("precio"),objProducto.getString("url"), objProducto.getString("descuento"));
+
+                list.add(prod);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
