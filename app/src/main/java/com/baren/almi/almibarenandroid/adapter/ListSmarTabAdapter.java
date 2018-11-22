@@ -32,7 +32,7 @@ import java.util.List;
 
 public class ListSmarTabAdapter extends ArrayAdapter {
     public ImageView ivProd=null;
-    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd;
+    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd, tvProdPrecSid;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/smarttab";
@@ -90,6 +90,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         tvProd=listSmartTabV.findViewById(R.id.tvProducto);
         tvIdProd=listSmartTabV.findViewById(R.id.tvIdProducto);
         tvProdPrec=listSmartTabV.findViewById(R.id.tvPrecioProducto);
+        tvProdPrecSid=listSmartTabV.findViewById(R.id.tvPrecioProductoSinDescuento);
         tvProdPrec=listSmartTabV.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_smarttab);
@@ -101,7 +102,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         tvIdProd.setText(list.get(position).getId());
         tvProd.setText(list.get(position).getNombre());
         tvProdPrec.setText(list.get(position).getPrecio());
-        Log.d("JON", (tvProdDesc==null)+"");
+        tvProdPrecSid.setText(list.get(position).getCalculado());
         //tvProdDesc.setText(list.get(position).getDescuento());
         return listSmartTabV;
     }

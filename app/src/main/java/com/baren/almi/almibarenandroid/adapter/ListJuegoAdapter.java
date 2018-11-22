@@ -34,7 +34,7 @@ import java.util.List;
 public class ListJuegoAdapter extends ArrayAdapter {
 
     public ImageView ivProd=null;
-    public TextView tvProd,tvProdPrec, tvProdDesc, tvIdProd;
+    public TextView tvProd,tvProdPrec, tvProdDesc, tvIdProd, tvPrecProSid;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/games";
@@ -90,6 +90,7 @@ public int getCount(){
         tvProd=listJuegoView.findViewById(R.id.tvProducto);
         tvIdProd=listJuegoView.findViewById(R.id.tvIdProducto);
         tvProdPrec=listJuegoView.findViewById(R.id.tvPrecioProducto);
+        tvPrecProSid=listJuegoView.findViewById(R.id.tvPrecioProductoSinDescuento);
         tvProdDesc=listJuegoView.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_juegos);
@@ -100,7 +101,8 @@ public int getCount(){
         }
         tvIdProd.setText(items.get(position).getId());
         tvProd.setText(items.get(position).getNombre());
-        //tvProdPrec.setText(items.get(position).getPrecio());
+        tvProdPrec.setText(items.get(position).getCalculado());
+        tvPrecProSid.setText(items.get(position).getPrecio());
         tvProdDesc.setText(items.get(position).getDescuento());
         return listJuegoView;
     }

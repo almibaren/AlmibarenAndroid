@@ -46,10 +46,8 @@ public class PopularesRVAdapter extends RecyclerView.Adapter<PopularesRVAdapter.
     @Override
     public void onBindViewHolder(MyViewHolder myViewHolder, int i) {
         ((TextView) myViewHolder.mCardView.findViewById(R.id.tvProducto)).setText(list.get(i).getNombre());
-        //((TextView)myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText();
+        ((TextView)myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText(list.get(i).getCalculado());
         Glide.with(context).load(list.get(i).getUrl()).into((ImageView) myViewHolder.mCardView.findViewById(R.id.ivProducto));
-        /*((TextView) myViewHolder.mCardView.findViewById(R.id.tvPrecioProducto)).setText(list.get(i).getPrecio());
-        ((TextView) myViewHolder.mCardView.findViewById(R.id.tvDtoProducto)).setText(list.get(i).getDescuento());*/
 
     }
 

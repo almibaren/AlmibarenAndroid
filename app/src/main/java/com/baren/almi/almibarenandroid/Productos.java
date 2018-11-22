@@ -1,5 +1,8 @@
 package com.baren.almi.almibarenandroid;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Productos {
 
     private String id = "";
@@ -12,11 +15,15 @@ public class Productos {
     public Productos( String id, String nombre, String precio, String url, String descuento) {
         this.id = id;
         this.nombre = nombre;
-        this.precio = precio;
+        this.precio = precio + " €";
         this.url = url;
-        this.descuento = descuento;
-        this.calculado = (Float.parseFloat(precio)-Float.parseFloat(precio)*Float.parseFloat(descuento)/100) + "";
-
+        this.descuento = descuento + "%";
+        float calcular;
+        calcular = Float.parseFloat(precio)-Float.parseFloat(precio)*Float.parseFloat(descuento)/100;
+        BigDecimal bd = new BigDecimal(calcular);
+        bd = bd.setScale(2, RoundingMode.HALF_EVEN);
+        calcular = bd.floatValue();
+        this.calculado = calcular + " €";
     }
 
     public String getCalculado() {

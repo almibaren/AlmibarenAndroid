@@ -17,54 +17,68 @@
                 >
                 <ImageView
                     android:id="@+id/ivProducto"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
                     android:layout_margin="5dp"
-                    android:layout_weight="1"
                     android:layout_gravity="center"
                     android:src="@drawable/ic_menu_camera"/>
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/tvProducto"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="Producto"
-                android:textAppearance="?android:attr/textAppearanceMedium"/>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="5"
-                android:id="@+id/tvPrecioProducto"
                 android:gravity="center"
+                android:text="Producto"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvPrecioProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:textSize="14dp"
+                android:text="Producto" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <TextView
+                android:id="@+id/tvPrecioProductoSinDescuento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:text="Producto"
                 />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:id="@+id/tvPrecioProductoSinDescuento"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="5"
-                    android:id="@+id/tvDtoProducto"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:id="@+id/tvIdProducto"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tvDtoProducto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14dp"
+                android:gravity="center"
+                android:text="Producto" />
+
+            <TextView
+                android:id="@+id/tvIdProducto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" />
+                </LinearLayout>
+             </LinearLayout>
             </LinearLayout>
-            </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
+        </LinearLayout>
+</android.support.v7.widget.CardView>
