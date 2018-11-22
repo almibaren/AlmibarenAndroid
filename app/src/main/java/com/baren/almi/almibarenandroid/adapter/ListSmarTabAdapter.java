@@ -39,6 +39,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/smarttab";
     private List<Productos> list;
+
     public ListSmarTabAdapter(Context context){
         super(context, 0);
         requestQueue = Volley.newRequestQueue(context);
@@ -93,7 +94,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         tvIdProd=listSmartTabV.findViewById(R.id.tvIdProducto);
         tvProdPrec=listSmartTabV.findViewById(R.id.tvPrecioProducto);
         tvProdPrecSid=listSmartTabV.findViewById(R.id.tvPrecioProductoSinDescuento);
-        tvProdPrec=listSmartTabV.findViewById(R.id.tvDtoProducto);
+        tvProdDesc=listSmartTabV.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_smarttab);
         try {
@@ -105,7 +106,7 @@ public class ListSmarTabAdapter extends ArrayAdapter {
         tvProd.setText(list.get(position).getNombre());
         tvProdPrec.setText(list.get(position).getPrecio());
         tvProdPrecSid.setText(list.get(position).getCalculado());
-        //tvProdDesc.setText(list.get(position).getDescuento());
+        tvProdDesc.setText(list.get(position).getDescuento());
         listSmartTabV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
