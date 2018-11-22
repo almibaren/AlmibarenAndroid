@@ -119,7 +119,7 @@ public class ListConsolaAdapter extends ArrayAdapter {
             public void onClick(View v) {
                 PaginaProductoActivity paginaProducto = new PaginaProductoActivity();
                 Intent intent = new Intent(getContext(),PaginaProductoActivity.class);
-                intent.putExtra("productId",tvIdProd.getText().toString());
+                intent.putExtra("productId",((TextView)v.findViewById(R.id.tvIdProducto)).getText().toString());
                 getContext().startActivity(intent);
 
             }

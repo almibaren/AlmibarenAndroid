@@ -15,7 +15,8 @@
             android:layout_height="match_parent"
             android:layout_weight="2"
             android:gravity="center"
-            android:text="USER" />
+            android:text="USER"
+            android:id="@+id/tvProdOpUser"/>
 
         <TextView
             android:layout_width="match_parent"
@@ -23,7 +24,8 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="NOTA"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:id="@+id/tvProdOpVal"/>
     </LinearLayout>
 
     <LinearLayout
@@ -36,7 +38,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="VALORACION" />
+            android:text="VALORACION"
+            android:id="@+id/tvProdOpComment"/>
     </LinearLayout>
 
 </LinearLayout>

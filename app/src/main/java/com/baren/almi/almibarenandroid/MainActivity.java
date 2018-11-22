@@ -32,6 +32,7 @@ import com.baren.almi.almibarenandroid.fragment.UbicacionTiendaFragment;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     NavigationView navigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,9 +47,11 @@ public class MainActivity extends AppCompatActivity
         toggle.syncState();
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        MainFragment mainFragment =new MainFragment();
+        MainFragment mainFragment = new MainFragment();
         mainFragment.setActivity(this);
-        getSupportFragmentManager().beginTransaction().add(R.id.contentMain,mainFragment).commit();
+        FragmentManagerHandler fragmentManagerHandler = FragmentManagerHandler.getInstance();
+        fragmentManagerHandler.setFragmentManager(getSupportFragmentManager());
+        getSupportFragmentManager().beginTransaction().add(R.id.contentMain, mainFragment).commit();
     }
 
     @Override
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         Session session = new Session(getApplicationContext());
-        session.AbrirSession(getMenu(),getHeader(),getApplicationContext());
+        session.AbrirSession(getMenu(), getHeader(), getApplicationContext());
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -92,30 +95,30 @@ public class MainActivity extends AppCompatActivity
         Session session = new Session(getApplicationContext());
         Log.d("igor", id + "==" + R.id.inicio);
         if (id == R.id.inicio) {
-            MainFragment mainFragment =new MainFragment();
+            MainFragment mainFragment = new MainFragment();
             mainFragment.setActivity(this);
-            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain,mainFragment).commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, mainFragment).commit();
         } else if (id == R.id.servicioTecnico) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new SoporteTecnicoFragment()).commit();
-        } else  if (id == R.id.acercaDe){
+        } else if (id == R.id.acercaDe) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AcercaDeFragment()).commit();
-        } else if (id == R.id.ubicacion){
+        } else if (id == R.id.ubicacion) {
             getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new UbicacionTiendaFragment()).commit();
-        }else if (id == R.id.ajustes){
-            if(session.getUser()!=""){
+        } else if (id == R.id.ajustes) {
+            if (session.getUser() != "") {
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new AjustesFragment()).commit();
-            }else{
+            } else {
                 Toast.makeText(this, "Has de logear primero", Toast.LENGTH_SHORT).show();
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new IniciarSesionFragment()).commit();
             }
 
-        }else if (id == R.id.sesion){
-            String sesion= item.getTitle().toString();
-            if (sesion.equals("Iniciar Sesión")){
+        } else if (id == R.id.sesion) {
+            String sesion = item.getTitle().toString();
+            if (sesion.equals("Iniciar Sesión")) {
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, new IniciarSesionFragment()).commit();
-            }else if(sesion=="Cerrar Sesion"){
-                session.borrarSesion(getMenu(),getHeader(),getApplicationContext());
-                MainFragment mainFragment =new MainFragment();
+            } else if (sesion == "Cerrar Sesion") {
+                session.borrarSesion(getMenu(), getHeader(), getApplicationContext());
+                MainFragment mainFragment = new MainFragment();
                 mainFragment.setActivity(this);
                 getSupportFragmentManager().beginTransaction().replace(R.id.contentMain, mainFragment).commit();
             }
@@ -135,15 +138,16 @@ public class MainActivity extends AppCompatActivity
     public View getHeader() {
         return navigationView.getHeaderView(0);
     }
-//FUNCION PARA CERRAR EL KEYBOARD AL TOCAR FUERA DE EL
+
+    //FUNCION PARA CERRAR EL KEYBOARD AL TOCAR FUERA DE EL
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             View v = getCurrentFocus();
-            if ( v instanceof EditText) {
+            if (v instanceof EditText) {
                 Rect outRect = new Rect();
                 v.getGlobalVisibleRect(outRect);
-                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                if (!outRect.contains((int) event.getRawX(), (int) event.getRawY())) {
                     v.clearFocus();
                     InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                     imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
