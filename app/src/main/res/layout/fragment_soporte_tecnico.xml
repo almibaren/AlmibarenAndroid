@@ -5,19 +5,72 @@
     android:layout_height="match_parent"
     tools:context=".fragment.SoporteTecnicoFragment"
     android:id="@+id/soporteTecnicoFragment"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/colorPrimaryDark">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/servicio_tecnico"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimary" />
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@color/colorPrimary"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:text="@string/select" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@color/colorPrimary" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="2">
+        android:orientation="horizontal">
         <TextView
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/valorNomPro"/>
+            android:text="@string/valorNomPro"
+            android:textColor="@color/colorPrimary"/>
+
         <Spinner
+            android:id="@+id/spinnerProd"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:clickable="true"></Spinner>
+            android:layout_height="match_parent"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/colorPrimary"></Spinner>
     </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@color/colorPrimary"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="465dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/desc"
+            android:textColor="@color/colorPrimary" />
+
+        <EditText
+            android:id="@+id/etDescServ"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textColor="@color/colorPrimary"
+            android:inputType="text"
+            android:imeOptions="actionSend"></EditText>
+    </LinearLayout>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Enviar Reporte"
+        android:id="@+id/btnEnviar"/>
 </LinearLayout>
