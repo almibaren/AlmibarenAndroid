@@ -35,11 +35,14 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <activity android:name=".RegistrarActivity"></activity>
-        <activity android:name=".PaginaProducto"></activity>
+
+        <activity android:name=".RegistrarActivity" />
         <activity
             android:name=".fragment.UbicacionTiendaFragment"
-            android:label="@string/title_activity_ubicacion_tienda_fragment"></activity>
+            android:label="@string/title_activity_ubicacion_tienda_fragment" />
+        <activity
+            android:name=".PaginaProductoActivity"
+            android:label="@string/title_activity_pagina_producto"></activity>
     </application>
 
 </manifest>

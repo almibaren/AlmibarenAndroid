@@ -47,4 +47,5 @@
     <string name="passwdAnt">Contraseña Antigua*</string>
     <string name="urlActu">Escriba aqui una Url para cambiar la imagen</string>
     <string name="Nada">N/a</string>
+    <string name="title_activity_pagina_producto">PaginaProductoActivity</string>
 </resources>

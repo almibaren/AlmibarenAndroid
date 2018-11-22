@@ -19,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.baren.almi.almibarenandroid.PaginaProductoActivity;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.PaginaProducto;
@@ -117,8 +118,8 @@ public class ListConsolaAdapter extends ArrayAdapter {
         listConsolaV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                PaginaProducto paginaProducto = new PaginaProducto();
-                Intent intent = new Intent(getContext(),PaginaProducto.class);
+                PaginaProductoActivity paginaProducto = new PaginaProductoActivity();
+                Intent intent = new Intent(getContext(),PaginaProductoActivity.class);
                 intent.putExtra("productId",tvIdProd.getText().toString());
                 getContext().startActivity(intent);
 
