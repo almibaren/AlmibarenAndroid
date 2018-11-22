@@ -8,6 +8,10 @@ import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+
+import com.baren.almi.almibarenandroid.R;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -43,10 +47,10 @@ public class PagerPaginaProductoAdapter extends PagerAdapter {
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
 
-        //View imageLayout = inflater.inflate(R.layout.slidingimages_layout, view, false);
-        //final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
-        //imageView.setImageResource(imagenes.get(position));
-        //view.addView(imageLayout, 0);
+        View imageLayout = inflater.inflate(R.layout.sliding_images_layout, container, false);
+        final ImageView imageView = (ImageView) imageLayout.findViewById(R.id.image);
+        Glide.with(context).load(imagenes.get(position)).into(imageView);
+        container.addView(imageLayout, 0);
         return imageLayout;
     }
 
