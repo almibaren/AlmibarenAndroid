@@ -5,6 +5,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PaginaProductoActivity extends Activity {
+public class PaginaProductoActivity extends AppCompatActivity {
 
     private String idProducto = "3";
     private TextView tvNombreProd, tvPrecioProd, tvDtoProd, tvPrecioVProd, tvDescProd;
@@ -90,8 +91,8 @@ public class PaginaProductoActivity extends Activity {
                     imagenes.add(response.getString("url4"));
                     JSONArray opinions = response.getJSONArray("opiniones");
 
-                   // PagerPaginaProductoAdapter pagerPaginaProductoAdapter = new PagerPaginaProductoAdapter(FragmentManagerHandler.getInstance().getFragmentManager(), imagenes, getApplicationContext());
-                    //vpImagenesProd.setAdapter(pagerPaginaProductoAdapter);
+                   PagerPaginaProductoAdapter pagerPaginaProductoAdapter = new PagerPaginaProductoAdapter(getSupportFragmentManager(), imagenes, getApplicationContext());
+                    vpImagenesProd.setAdapter(pagerPaginaProductoAdapter);
                     for (int i = 0; i < opinions.length(); i++) {
                         Opinion o = new Opinion(opinions.getJSONObject(i).getString("user"), opinions.getJSONObject(i).getString("valoracion"), opinions.getJSONObject(i).getString("comentario"));
                         opiniones.add(o);

@@ -1,6 +1,7 @@
 package com.baren.almi.almibarenandroid.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.util.Log;
@@ -18,6 +19,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.baren.almi.almibarenandroid.PaginaProductoActivity;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
 import com.baren.almi.almibarenandroid.singleton.JuegoSingleton;
@@ -104,6 +106,15 @@ public int getCount(){
         tvProdPrec.setText(items.get(position).getCalculado());
         tvPrecProSid.setText(items.get(position).getPrecio());
         tvProdDesc.setText(items.get(position).getDescuento());
+        listJuegoView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PaginaProductoActivity paginaProducto = new PaginaProductoActivity();
+                Intent intent = new Intent(getContext(),PaginaProductoActivity.class);
+                intent.putExtra("productId",((TextView)v.findViewById(R.id.tvIdProducto)).getText().toString());
+                getContext().startActivity(intent);
+            }
+        });
         return listJuegoView;
     }
 }
