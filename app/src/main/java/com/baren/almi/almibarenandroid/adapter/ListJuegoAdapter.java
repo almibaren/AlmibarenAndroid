@@ -68,7 +68,6 @@ public class ListJuegoAdapter extends ArrayAdapter {
             JSONObject objectJuego= jsonArray.getJSONObject(i);
             Productos prod = new Productos(objectJuego.getString("id"), objectJuego.getString("nombre"), objectJuego.getString("precio"),objectJuego.getString("url"), objectJuego.getString("descuento"));
             productos.add(prod);
-            Toast.makeText(getContext(), prod.getCalculado(), Toast.LENGTH_SHORT).show();
         }catch (JSONException e){
             e.printStackTrace();
         }

@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.FragmentManager;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +21,6 @@ import com.android.volley.toolbox.Volley;
 import com.baren.almi.almibarenandroid.PaginaProductoActivity;
 import com.baren.almi.almibarenandroid.Productos;
 import com.baren.almi.almibarenandroid.R;
-import com.baren.almi.almibarenandroid.PaginaProducto;
-import com.baren.almi.almibarenandroid.RegistrarActivity;
 import com.baren.almi.almibarenandroid.singleton.ConsolaSingleton;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -37,7 +34,7 @@ import java.util.List;
 
 public class ListConsolaAdapter extends ArrayAdapter {
     public ImageView ivProd=null;
-    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd;
+    public TextView tvProd, tvProdPrec, tvProdDesc, tvIdProd, tvPrecProSiD;
     private RequestQueue requestQueue;
     private JsonArrayRequest jsArrayRequest;
     private String URL_BASE = "https://almibar.webcindario.com/almibarenBackend/products/consoles";
@@ -103,6 +100,7 @@ public class ListConsolaAdapter extends ArrayAdapter {
         tvProd=listConsolaV.findViewById(R.id.tvProducto);
         tvIdProd=listConsolaV.findViewById(R.id.tvIdProducto);
         tvProdPrec=listConsolaV.findViewById(R.id.tvPrecioProducto);
+        tvPrecProSiD=listConsolaV.findViewById(R.id.tvPrecioProductoSinDescuento);
         tvProdDesc=listConsolaV.findViewById(R.id.tvDtoProducto);
         RequestOptions requestOptions=new RequestOptions();
         requestOptions.placeholder(R.drawable.ic_consolas);
@@ -113,7 +111,8 @@ public class ListConsolaAdapter extends ArrayAdapter {
         }
         tvIdProd.setText(list.get(position).getId());
         tvProd.setText(list.get(position).getNombre());
-        tvProdPrec.setText(list.get(position).getPrecio());
+        tvProdPrec.setText(list.get(position).getCalculado());
+        tvPrecProSiD.setText(list.get(position).getPrecio());
         tvProdDesc.setText(list.get(position).getDescuento());
         listConsolaV.setOnClickListener(new View.OnClickListener() {
             @Override
